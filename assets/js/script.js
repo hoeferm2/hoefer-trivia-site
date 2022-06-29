@@ -53,8 +53,15 @@ function startQuiz() {
         //TODO: make question # associated with random question appear
     }
     renderQuestion();
-
-
+    console.log("The question is rendered.")
+    function revealQuestion() {
+        document.querySelector(".hidden-question").setAttribute("class", "visible-question")
+    }
+    revealQuestion()
+    function populateQuestion() {
+        document.querySelector("#questionSpan").innerHTML = randomQuestion;
+    }
+    populateQuestion()
 }
 
 /*

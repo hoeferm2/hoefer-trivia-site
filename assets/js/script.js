@@ -1,6 +1,10 @@
 //TODO: Countdown timer
 //TODO: List of questions = Array
 
+//TODO: check answer
+// gets what user clicked
+// checks answer against correct
+
 // TODO: function init
 
 
@@ -21,32 +25,50 @@ var timerel = document.querySelector("#timer")
 var startEl = document.querySelector("#start-button")
 var questionIndex = 0
 
+
+// var highScores = [
+//     {
+//         initials:"",
+//         score: (num)
+//     }
+// ]
 function populatebuttons() {
-    button1.innerText = questionBank[1];
-    button2.innerText = questionBank[2];
-    button3.innerText = questionBank[3];
-    button4.innerText = questionBank[4];
+
+
 }
 
 
-var questionBank = ["What color was Napoleons white horse?", "White", "Brown", "Purple", "Black"]
+
 // TODO: Implement multiple questions
-// var questionBank ={
-//     question1: ["What color was Napoleons white horse?", "White", "Brown", "Purple", "Black"]
-//     question2: ["Who played the Terminator in the terminator?", "Arnold Swarzenegger", "Selvester Stallone", "Steven Segal", "Tyler Perry"]
-//     question3: ["Who is the best basketball player of all time?", "Aaron Carter", "Shaquille O'Neal", "Brent Barry", "Gary Payton"]
-//     question4: ["Whats the deal with airline food?","It's GOOD!", "No idea Jerry!", "I mean it's not the best.", "I don't know What?"]
-// }
 //Quiz Material
-// var questionBank = ["What color was Napoleons white horse?","Who played the Terminator in the terminator?", "Who is the best basketball player of all time?", "Whats the deal with airline food?" ];
 
+var questionBank = [
+    {
+        question: '"What color was Napoleons white horse?"',
+        answers: ["white", "brown", "purple", "black"],
+        correct: 'White'
+    },
+    {
+        question: "Who played the Terminator in the terminator?",
+        answers: ["Arnold Swarzenegger", "Selvester Stallone", "Steven Segal", "Tyler Perry"],
+        correct: "Arnold Swarzenegger",
+    },
+    {
+        question: "Who is the best basketball player of all time?",
+        answers: ["Aaron Carter", "Shaquille O'Neal", "Brent Barry", "Gary Payton"],
+        correct: "Aaron Carter",
+    },
+    {
+        question: "Whats the deal with airline food?",
+        answers: ["It's GOOD!", "No idea Jerry!", "I mean it's not the best.", "I don't know What?",],
+        correct: "It's GOOD!"
+    },
+]
+// questions[0].question
+// questions[0].correct
+// questions[0].answers[2]
 
-// var answerBank = {
-//     horse: ["White", "Brown", "Purple", "Black"]
-//     terminator: ["Arnold Swarzenegger", "Selvester Stallone", "Steven Segal", "Tyler Perry"]
-//     basketball: ["Aaron Carter", "Shaquille O'Neal", "Brent Barry", "Gary Payton"]    
-//     airline: ["It's GOOD!", "No idea Jerry!", "I mean it's not the best.", "I don't know What?"]
-// };
+// questions[0]
 
 var playBtn = document.querySelector("#play-btn");
 playBtn.addEventListener("click", startQuiz);
@@ -72,21 +94,25 @@ function startQuiz() {
     // populateQuestion()
 }
 
-function renderQuestion() {
+function loadQuestion() {
     // randomly pick Questions from the Questions array
     //    var randomQuestion = Math.floor(Math.random() * questionBank.length);
     //     console.log(randomQuestion, questionBank[randomQuestion]);
     //     // pulls array spot and word
     //     randomQuestion = questionBank[randomQuestion];
     //     console.log(randomQuestion);
-    var currentQuestion = questionBank[questionIndex]
+
+    var currentQuestion = questionBank[questionIndex].question
+    // var question1 = questionBank[questionIndex][1]
     console.log(currentQuestion)
     console.log(questionSpan)
     questionSpan.innerText = currentQuestion;
 
     // This line populates the question buttons
-    console.log(populatebuttons)
-    populatebuttons()
+    button1.innerText = questionBank[questionIndex].answers[0];
+    button2.innerText = questionBank[questionIndex].answers[1];
+    button3.innerText = questionBank[questionIndex].answers[2];
+    button4.innerText = questionBank[questionIndex].answers[3];
 
 
 }
@@ -99,7 +125,7 @@ function buttonHidden() {
     console.log("The buttons have gone")
     hiddenQuestion.classList.remove(".hidden-question")
     hiddenQuestion.classList.add("visible-question");
-    renderQuestion();
+    loadQuestion();
 }
 
 
@@ -123,3 +149,52 @@ function viewScore() {
 // disapearing button function
 highscoreBtn.addEventListener("click", viewScore)
 
+
+button1.addEventListener("click", function () {
+    if (button1.innerText === questionBank[questionIndex].correct) {
+        console.log(button1.innerText);
+        console.log(questionBank[questionIndex].correct)
+        score = score + 5
+        console.log(score)
+    } else {
+        console.log("Waahhh")
+        score = score + 552;
+        console.log(score)
+    }
+})
+button2.addEventListener("click", function () {
+    if (button1.innerText === questionBank[questionIndex].correct) {
+        console.log(button1.innerText);
+        console.log(questionBank[questionIndex].correct)
+        score = score + 5
+        console.log(score)
+    } else {
+        console.log("Waahhh")
+        score = score + 552;
+        console.log(score)
+    }
+})
+button3.addEventListener("click", function () {
+    if (button1.innerText === questionBank[questionIndex].correct) {
+        console.log(button1.innerText);
+        console.log(questionBank[questionIndex].correct)
+        score = score + 5
+        console.log(score)
+    } else {
+        console.log("Waahhh")
+        score = score + 552;
+        console.log(score)
+    }
+})
+button4.addEventListener("click", function () {
+    if (button1.innerText === questionBank[questionIndex].correct) {
+        console.log(button1.innerText);
+        console.log(questionBank[questionIndex].correct)
+        score = score + 5
+        console.log(score)
+    } else {
+        console.log("Waahhh")
+        score = score + 552;
+        console.log(score)
+    }
+})

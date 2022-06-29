@@ -1,8 +1,6 @@
 // Document Selectors
-var question1El = document.querySelector("#question-1")
-var question2El = document.querySelector("#question-2")
-var question3El = document.querySelector("#question-3")
-var question4El = document.querySelector("#question-4")
+var questionSpan = document.querySelector("#questionEl")
+var hiddenQuestion = document.querySelector(".hidden-question")
 var highscoreBtn = document.querySelector("#highscore-btn");
 var timeLeftSpan = document.querySelector("#timeLeftSpan");
 var highScoreSpan = document.querySelector("highScoreSpan")
@@ -14,14 +12,17 @@ var startEl = document.querySelector("#start-button")
 
 //Quiz Material
 var questionBank = ["What color was Napoleons white horse?", /*"Who played the Terminator in the terminator?", "Who is the best basketball player of all time?", "Whats the deal with airline food?" */];
-
-/*var answerBank = {
+/*
+//TODO: get answer bank to work with associated questions.
+var answerBank = {
     questionBank0: ["White", "Brown", "Purple", "Black"]
-    //questionBank1: ["Arnold Swarzenegger", "Selvester Stallone", "Steven Segal", "Tyler Perry"]
+    questionBank1: ["Arnold Swarzenegger", "Selvester Stallone", "Steven Segal", "Tyler Perry"]
     questionBank2: ["Aaron Carter", "Shaquille O'Neal", "Brent Barry", "Gary Payton"]    
     questionBank3: ["It's GOOD!", "No idea Jerry!", "I mean it's not the best.", "I don't know What?"]
 };
-var playBtn = document.querySelector("#play-btn"); */
+*/
+var playBtn = document.querySelector("#play-btn");
+playBtn.addEventListener("click", startQuiz);
 
 //TODO: Countdown timer
 //TODO: List of questions = Array
@@ -41,7 +42,7 @@ function startQuiz() {
     buttonHidden();
 
     function renderQuestion() {
-        //TODO: randomly pick words from words array
+        // randomly pick Questions from the Questions array
         var randomQuestion = Math.floor(Math.random() * questionBank.length);
         console.log(randomQuestion, questionBank[randomQuestion]);
         // pulls array spot and word
@@ -51,7 +52,8 @@ function startQuiz() {
         //Splits the word string into an array
         //TODO: make question # associated with random question appear
     }
-    renderQuestion()
+    renderQuestion();
+
 
 }
 
@@ -73,7 +75,7 @@ function startQuiz() {
 
     }
 
-    playBtn.addEventListener("click", startQuiz);
+    
     // disapearing button function
    // highscoreBtn.addEventListener("click", viewScore)
 

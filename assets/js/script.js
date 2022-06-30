@@ -45,13 +45,13 @@ function populatebuttons() {
 var questionBank = [
     {
         question: '"What color was Napoleons white horse?"',
-        answers: ["white", "brown", "purple", "black"],
+        answers: ["White", "Brown", "Purple", "Black"],
         correct: 'White'
     },
     {
-        question: "Who played the Terminator in the terminator?",
+        question: "Who played Rocky in the Rocky?",
         answers: ["Arnold Swarzenegger", "Selvester Stallone", "Steven Segal", "Tyler Perry"],
-        correct: "Arnold Swarzenegger",
+        correct: "Selvester Stallone",
     },
     {
         question: "Who is the best basketball player of all time?",
@@ -63,13 +63,12 @@ var questionBank = [
         answers: ["It's GOOD!", "No idea Jerry!", "I mean it's not the best.", "I don't know What?",],
         correct: "It's GOOD!"
     },
+    {
+        question: "California girls are ____",
+        answers: ["Undeniable", "Daisy Dukes Bikinis on top", "So hot they'll melt your popsicle", "All",],
+        correct: "All",
+    },
 ]
-// questions[0].question
-// questions[0].correct
-// questions[0].answers[2]
-
-// questions[0]
-
 var playBtn = document.querySelector("#play-btn");
 playBtn.addEventListener("click", startQuiz);
 
@@ -78,6 +77,7 @@ playBtn.addEventListener("click", startQuiz);
 function startQuiz() {
     console.log("You clicked the play button");
 
+    // starTimer();
     buttonHidden();
 
 
@@ -95,6 +95,14 @@ function startQuiz() {
 }
 
 function loadQuestion() {
+    console.log(questionBank.length - 1);
+    var currentQuestion = questionBank[questionIndex].question
+    // var question1 = questionBank[questionIndex][1]
+    console.log(currentQuestion)
+    console.log(questionSpan)
+    questionSpan.innerText = currentQuestion;
+
+
     // randomly pick Questions from the Questions array
     //    var randomQuestion = Math.floor(Math.random() * questionBank.length);
     //     console.log(randomQuestion, questionBank[randomQuestion]);
@@ -102,17 +110,20 @@ function loadQuestion() {
     //     randomQuestion = questionBank[randomQuestion];
     //     console.log(randomQuestion);
 
-    var currentQuestion = questionBank[questionIndex].question
-    // var question1 = questionBank[questionIndex][1]
-    console.log(currentQuestion)
-    console.log(questionSpan)
-    questionSpan.innerText = currentQuestion;
+    //var currentQuestion = questionBank[questionIndex].question
+
 
     // This line populates the question buttons
     button1.innerText = questionBank[questionIndex].answers[0];
     button2.innerText = questionBank[questionIndex].answers[1];
     button3.innerText = questionBank[questionIndex].answers[2];
     button4.innerText = questionBank[questionIndex].answers[3];
+
+    console.log(button1.innerText)
+    console.log(button2.innerText)
+    console.log(button3.innerText)
+    console.log(button4.innerText)
+    console.log(questionBank[questionIndex].correct)
 
 
 }
@@ -151,50 +162,64 @@ highscoreBtn.addEventListener("click", viewScore)
 
 
 button1.addEventListener("click", function () {
+
     if (button1.innerText === questionBank[questionIndex].correct) {
-        console.log(button1.innerText);
-        console.log(questionBank[questionIndex].correct)
+        console.log("YAY")
         score = score + 5
         console.log(score)
+        questionIndex = questionIndex + 1
+        loadQuestion()
     } else {
-        console.log("Waahhh")
-        score = score + 552;
-        console.log(score)
+        console.log("Waahhh");
+        console.log(score);
+        questionIndex = questionIndex + 1
+        loadQuestion()
     }
 })
 button2.addEventListener("click", function () {
-    if (button1.innerText === questionBank[questionIndex].correct) {
-        console.log(button1.innerText);
-        console.log(questionBank[questionIndex].correct)
+    if (button2.innerText === questionBank[questionIndex].correct) {
+        console.log("YAY")
         score = score + 5
         console.log(score)
+        questionIndex = questionIndex + 1
+        loadQuestion()
     } else {
-        console.log("Waahhh")
-        score = score + 552;
-        console.log(score)
+        console.log("Waahhh");
+        console.log(score);
+        questionIndex = questionIndex + 1
+        loadQuestion()
     }
 })
 button3.addEventListener("click", function () {
-    if (button1.innerText === questionBank[questionIndex].correct) {
-        console.log(button1.innerText);
-        console.log(questionBank[questionIndex].correct)
+    if (button3.innerText === questionBank[questionIndex].correct) {
+        console.log("YAY")
         score = score + 5
         console.log(score)
+        questionIndex = questionIndex + 1
+        loadQuestion()
     } else {
-        console.log("Waahhh")
-        score = score + 552;
-        console.log(score)
+        console.log("Waahhh");
+        console.log(score);
+        questionIndex = questionIndex + 1
+        loadQuestion()
     }
 })
 button4.addEventListener("click", function () {
-    if (button1.innerText === questionBank[questionIndex].correct) {
-        console.log(button1.innerText);
-        console.log(questionBank[questionIndex].correct)
+    if (button4.innerText === questionBank[questionIndex].correct) {
+        console.log("YAY")
         score = score + 5
         console.log(score)
+        questionIndex = questionIndex + 1
+        loadQuestion()
     } else {
-        console.log("Waahhh")
-        score = score + 552;
-        console.log(score)
+        console.log("Waahhh");
+        console.log(score);
+        questionIndex = questionIndex + 1
+        loadQuestion()
     }
 })
+
+
+// TODO: Endgame Function.
+
+// 

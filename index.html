@@ -17,10 +17,12 @@
 
     <section class="container">
 
-        <div id="home" class="flex-column flex-center">
-            <h1>Are you ready?</h1>
-            <button class="btn" id="play-btn">Play</button>
-            <button class="btn" id="highscore-btn">High score</button>
+        <div id="home">
+            <div class="flex-column flex-center">
+                <h1>Are you ready?</h1>
+                <button class="btn" id="play-btn">Play</button>
+                <button class="btn" id="highscore-btn">High score</button>
+            </div>
         </div>
 
         <div class="hidden-question" id="question">
@@ -32,20 +34,31 @@
                 <button class="btn answer" id="button4"></button>
             </div>
         </div>
-    </section>
 
-    <section class="container">
         <div class="hidden-scores">
             <div class=" flex-column flex-center">
                 <h1>Hall of Fame!</h1>
-                <label for="fname">UserName:</label>
-                <input type="text" id="fname" name="fname">
+                <form>
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname">
+                </form>
                 <ol class="orderedScores"></ol>
+                <button class="btn" id="play-btn">Play</button>
             </div>
         </div>
+
+        <div class="hidden-gameOver">
+            <div class=" flex-column flex-center">
+                <h1>GAME OVER</h1>
+                <h2>Carve your name into the wall of champions</h2>
+                <button class="btn" id="highscore-btn">Enter High score</button>
+            </div>
+        </div>
+
     </section>
-    </aside>
-    </main>
+
 
     <script src="./assets/js/script.js"></script>
 </body>

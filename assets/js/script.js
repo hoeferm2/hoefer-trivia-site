@@ -8,7 +8,7 @@ var hiddenQuestion = document.querySelector(".hidden-question")
 var highscoreBtn = document.querySelector("#highscore-btn");
 var timeLeftSpan = document.querySelector("#timeLeftSpan");
 var highScoreSpan = document.querySelector("#highScoreSpan");
-var scoreSpan = document.querySelector("#scorespan");
+var scoreSpan = document.querySelector("#scoreSpan");
 // High score page div element
 var highScorePage = document.querySelector(".hidden-scores")
 var playBtn = document.querySelector("#play-btn");
@@ -45,14 +45,14 @@ var questionBank = [
     },
 ]
 //LocalStorage Variable
-var score = 1;
+var score = 0;
 var secondsLeft = 75;
 var timerel = document.querySelector("#timer")
 var startEl = document.querySelector("#start-button")
 var questionIndex = 0
 
 //TODO: Display Current Score
-// scoreSpan.textContent = toString(score) + " points";
+
 
 
 // FUNCTIONS
@@ -77,6 +77,7 @@ function startTime() {
 function startQuiz() {
     startTime()
     console.log("You clicked the play button");
+    scoreSpan.textContent = score + " points";
 
     // starTimer();
     buttonHidden();
@@ -98,9 +99,6 @@ function startQuiz() {
 function loadQuestion() {
     // TODO: Endgame THIS STUFF IS NEW
 
-    // if (questionIndex > questionBank.length - 1) {
-    //     highScoreScreen()
-    // } else {
     console.log(questionBank.length - 1);
     var currentQuestion = questionBank[questionIndex].question
     // var question1 = questionBank[questionIndex][1]
@@ -132,7 +130,7 @@ function loadQuestion() {
     console.log(questionBank[questionIndex].correct)
 
 }
-// }
+
 
 function buttonHidden() {
 
@@ -140,6 +138,8 @@ function buttonHidden() {
     console.log("The buttons have gone")
     hiddenQuestion.classList.remove("hidden-question")
     hiddenQuestion.classList.add("visible-question");
+    highScorePage.classList.remove("visible-scores")
+    highScorePage.classList.add("hidden-scores")
     loadQuestion();
 }
 
@@ -154,7 +154,8 @@ button1.addEventListener("click", function () {
 
     if (button1.innerText === questionBank[questionIndex].correct) {
         console.log("YAY")
-        score = score + 5
+        score = score + 5 + (secondsLeft * 1.3)
+        scoreSpan.textContent = score + " points";
         console.log(score)
         questionIndex = questionIndex + 1
         loadQuestion()
@@ -162,13 +163,15 @@ button1.addEventListener("click", function () {
         console.log("Waahhh");
         console.log(score);
         questionIndex = questionIndex + 1;
+        secondsLeft = secondsLeft - 5;
         loadQuestion()
     }
 })
 button2.addEventListener("click", function () {
     if (button2.innerText === questionBank[questionIndex].correct) {
         console.log("YAY")
-        score = score + 5
+        score = score + 5 + (secondsLeft * 1.3)
+        scoreSpan.textContent = score + " points";
         console.log(score)
         questionIndex = questionIndex + 1
         loadQuestion()
@@ -176,13 +179,15 @@ button2.addEventListener("click", function () {
         console.log("Waahhh");
         console.log(score);
         questionIndex = questionIndex + 1;
+        secondsLeft = secondsLeft - 5;
         loadQuestion()
     }
 })
 button3.addEventListener("click", function () {
     if (button3.innerText === questionBank[questionIndex].correct) {
-        console.log("YAY")
-        score = score + 5
+        console.log("YAY");
+        score = score + 5 + (secondsLeft * 1.3)
+        scoreSpan.textContent = score + " points";
         console.log(score)
         questionIndex = questionIndex + 1
         loadQuestion()
@@ -190,13 +195,15 @@ button3.addEventListener("click", function () {
         console.log("Waahhh");
         console.log(score);
         questionIndex = questionIndex + 1;
+        secondsLeft = secondsLeft - 5;
         loadQuestion()
     }
 })
 button4.addEventListener("click", function () {
     if (button4.innerText === questionBank[questionIndex].correct) {
         console.log("YAY")
-        score = score + 5
+        score = score + 5 + (secondsLeft * 1.3)
+        scoreSpan.textContent = score + " points";
         console.log(score)
         questionIndex = questionIndex + 1
         loadQuestion()
@@ -204,6 +211,7 @@ button4.addEventListener("click", function () {
         console.log("Waahhh");
         console.log(score);
         questionIndex = questionIndex + 1;
+        secondsLeft = secondsLeft - 5;
         loadQuestion()
     }
 })
@@ -232,7 +240,17 @@ function viewScore() {
 
 // TODO: Endgame Function.
 
-//function highScoreScreen() {
+function gameOver() {
+    hiddenQuestion.classList.remove("visible-question")
+    hiddenQuestion.classList.add("hidden-question");
+    highScorePage.classList.add("hidden-scores")
+    highScorePage.classList.remove("visible-scores")
+    gameOver.classList.add("visible-gameOver")
+    gameOver.classList.remove("hidden-gameOver")
+}
 
+
+// if (questionIndex > questionBank.length - 1) {
+//     gameOver()
 // }
-
+// else

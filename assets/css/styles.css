@@ -45,12 +45,13 @@ h2 {
 }
 
 .hidden-question,
-.hidden-scores {
+.hidden-scores,
+.hidden-gameOver {
     display: none;
 }
 
 .visible-question,
-.visible-scores {
+.visible-scores .visible-gameOver {
     width: 100vw;
     height: 100vh;
     display: flex;

@@ -1,47 +1,20 @@
 //TODO: Countdown timer
-//TODO: List of questions = Array
-
-//TODO: check answer
-// gets what user clicked
-// checks answer against correct
-
-// TODO: function init
-
+// when timer ends something happens
+//go to end screen.
 
 // Document Selectors
 var questionSpan = document.querySelector("#questionSpan")
 var hiddenQuestion = document.querySelector(".hidden-question")
 var highscoreBtn = document.querySelector("#highscore-btn");
 var timeLeftSpan = document.querySelector("#timeLeftSpan");
-var highScoreSpan = document.querySelector("highScoreSpan")
-var button1 = document.querySelector("#button1")
-var button2 = document.querySelector("#button2")
-var button3 = document.querySelector("#button3")
-var button4 = document.querySelector("#button4")
-//LocalStorage Variable
-var score = 0;
-var secondsLeft = 75;
-var timerel = document.querySelector("#timer")
-var startEl = document.querySelector("#start-button")
-var questionIndex = 0
-
-
-// var highScores = [
-//     {
-//         initials:"",
-//         score: (num)
-//     }
-// ]
-function populatebuttons() {
-
-
-}
-
-
-
-// TODO: Implement multiple questions
-//Quiz Material
-
+var highScoreSpan = document.querySelector("#highScoreSpan");
+var scoreSpan = document.querySelector("#scorespan");
+var playBtn = document.querySelector("#play-btn");
+var button1 = document.querySelector("#button1");
+var button2 = document.querySelector("#button2");
+var button3 = document.querySelector("#button3");
+var button4 = document.querySelector("#button4");
+// Questions and answers
 var questionBank = [
     {
         question: '"What color was Napoleons white horse?"',
@@ -69,12 +42,38 @@ var questionBank = [
         correct: "All",
     },
 ]
-var playBtn = document.querySelector("#play-btn");
-playBtn.addEventListener("click", startQuiz);
+//LocalStorage Variable
+var score = 1;
+var secondsLeft = 75;
+var timerel = document.querySelector("#timer")
+var startEl = document.querySelector("#start-button")
+var questionIndex = 0
+
+//TODO: Display Current Score
+// scoreSpan.textContent = toString(score) + " points";
 
 
+// FUNCTIONS
+
+//TODO: Start Timer
+function startTime() {
+    // Sets interval in variable
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        timeLeftSpan.textContent = secondsLeft + " seconds left";
+
+        if (secondsLeft === 0) {
+            // Stops execution of action at set interval
+            clearInterval(timerInterval);
+            // Calls function to create and append image
+            // sendMessage();
+        }
+
+    }, 1000);
+}
 
 function startQuiz() {
+    startTime()
     console.log("You clicked the play button");
 
     // starTimer();
@@ -95,6 +94,11 @@ function startQuiz() {
 }
 
 function loadQuestion() {
+    // TODO: Endgame THIS STUFF IS NEW
+
+    // if (questionIndex > questionBank.length - 1) {
+    //     highScoreScreen()
+    // } else {
     console.log(questionBank.length - 1);
     var currentQuestion = questionBank[questionIndex].question
     // var question1 = questionBank[questionIndex][1]
@@ -125,8 +129,8 @@ function loadQuestion() {
     console.log(button4.innerText)
     console.log(questionBank[questionIndex].correct)
 
-
 }
+// }
 
 function buttonHidden() {
 
@@ -139,28 +143,20 @@ function buttonHidden() {
     loadQuestion();
 }
 
-
-
-
-// List of questions = Array
-
 //TODO: High score button function
-
-
-
-
 
 function viewScore() {
     console.log("You want to see scores.")
     buttonHidden();
 
 }
-
+// Start quiz button
+playBtn.addEventListener("click", startQuiz);
 
 // disapearing button function
 highscoreBtn.addEventListener("click", viewScore)
 
-
+// Button Ansering Functions
 button1.addEventListener("click", function () {
 
     if (button1.innerText === questionBank[questionIndex].correct) {
@@ -172,7 +168,7 @@ button1.addEventListener("click", function () {
     } else {
         console.log("Waahhh");
         console.log(score);
-        questionIndex = questionIndex + 1
+        questionIndex = questionIndex + 1;
         loadQuestion()
     }
 })
@@ -186,7 +182,7 @@ button2.addEventListener("click", function () {
     } else {
         console.log("Waahhh");
         console.log(score);
-        questionIndex = questionIndex + 1
+        questionIndex = questionIndex + 1;
         loadQuestion()
     }
 })
@@ -200,7 +196,7 @@ button3.addEventListener("click", function () {
     } else {
         console.log("Waahhh");
         console.log(score);
-        questionIndex = questionIndex + 1
+        questionIndex = questionIndex + 1;
         loadQuestion()
     }
 })
@@ -214,7 +210,7 @@ button4.addEventListener("click", function () {
     } else {
         console.log("Waahhh");
         console.log(score);
-        questionIndex = questionIndex + 1
+        questionIndex = questionIndex + 1;
         loadQuestion()
     }
 })
@@ -222,4 +218,6 @@ button4.addEventListener("click", function () {
 
 // TODO: Endgame Function.
 
-// 
+// function highScoreScreen() {
+
+// }

@@ -11,35 +11,39 @@
 </head>
 
 <body>
-    <header>
-        <h1>This is Matts Trivia game</h1>
-        <h1>Score:<span></span>Timer:<span></span></h1>
+    <header class="always-visible">
+        <h1>Score:<span id="scoreSpan"></span></h1>
+        <h1>Timer:<span id="timeLeftSpan">75</span></h1>
     </header>
-    <main>
-        <section class="container">
-            <div id="home" class="flex-column flex-center">
-                <h1>Are you ready?</h1>
-                <button class="btn" id="play-btn">Play</button>
-                <button class="btn" id="highscore-btn">High score</button>
-            </div>
 
+    <section class="container">
+
+        <div id="home" class="flex-column flex-center">
+            <h1>Are you ready?</h1>
+            <button class="btn" id="play-btn">Play</button>
+            <button class="btn" id="highscore-btn">High score</button>
+        </div>
+
+        <div class="hidden-question" id="question">
+            <div class=" flex-column flex-center">
+                <h1><span id="questionSpan"></span></h1>
+                <button class="btn answer" id="button1"></button>
+                <button class="btn answer" id="button2"></button>
+                <button class="btn answer" id="button3"></button>
+                <button class="btn answer" id="button4"></button>
             </div>
-            <div class="hidden-question" id="question">
-                <div class=" flex-column flex-center" id="question-container">
-                    <h1><span id="questionSpan"></span></h1>
-                    <button class="btn answer" id="button1"></button>
-                    <button class="btn answer" id="button2"></button>
-                    <button class="btn answer" id="button3"></button>
-                    <button class="btn answer" id="button4"></button>
-                </div>
-        </section>
-        <section>
-            <aside>
-                <h2><span id="timeLeftSpan">75</span> seconds left</h2>
-                <p>score</p>
-                <p>timer</p>
-        </section>
-        </aside>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <h1>Hall of Fame!</h1>
+            <label for="fname">UserName:</label>
+            <input type="text" id="fname" name="fname">
+            <ol class="orderedScores"></ol>
+        </div>
+    </section>
+    </aside>
     </main>
 
     <script src="./assets/js/script.js"></script>

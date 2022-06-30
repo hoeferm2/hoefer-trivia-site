@@ -142,7 +142,7 @@ function buttonHidden() {
 
 
 
-//TODO: List of questions = Array
+// List of questions = Array
 
 //TODO: High score button function
 

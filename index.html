@@ -12,8 +12,7 @@
 
 <body>
     <header class="always-visible">
-        <h1>Score:<span id="scoreSpan"></span></h1>
-        <h1>Timer:<span id="timeLeftSpan">75</span></h1>
+        <h1>Score:<span id="scoreSpan"></span>Timer:<span id="timeLeftSpan">75</span></h1>
     </header>
 
     <section class="container">
@@ -35,12 +34,14 @@
         </div>
     </section>
 
-    <section>
-        <div>
-            <h1>Hall of Fame!</h1>
-            <label for="fname">UserName:</label>
-            <input type="text" id="fname" name="fname">
-            <ol class="orderedScores"></ol>
+    <section class="container">
+        <div class="hidden-scores">
+            <div class=" flex-column flex-center">
+                <h1>Hall of Fame!</h1>
+                <label for="fname">UserName:</label>
+                <input type="text" id="fname" name="fname">
+                <ol class="orderedScores"></ol>
+            </div>
         </div>
     </section>
     </aside>

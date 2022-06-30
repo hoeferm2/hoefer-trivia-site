@@ -16,8 +16,9 @@
 
 header {
     display: flexbox;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 h1 {
@@ -43,11 +44,13 @@ h2 {
     padding: 2rem;
 }
 
-.hidden-question {
+.hidden-question,
+.hidden-scores {
     display: none;
 }
 
-.visible-question {
+.visible-question,
+.visible-scores {
     width: 100vw;
     height: 100vh;
     display: flex;

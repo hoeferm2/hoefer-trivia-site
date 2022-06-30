@@ -9,6 +9,8 @@ var highscoreBtn = document.querySelector("#highscore-btn");
 var timeLeftSpan = document.querySelector("#timeLeftSpan");
 var highScoreSpan = document.querySelector("#highScoreSpan");
 var scoreSpan = document.querySelector("#scorespan");
+// High score page div element
+var highScorePage = document.querySelector(".hidden-scores")
 var playBtn = document.querySelector("#play-btn");
 var button1 = document.querySelector("#button1");
 var button2 = document.querySelector("#button2");
@@ -135,26 +137,17 @@ function loadQuestion() {
 function buttonHidden() {
 
     document.querySelector("#home").classList.add("hidden")
-    // playBtn.classList.add("hidden");
-    // highscoreBtn.classList.add("hidden");
     console.log("The buttons have gone")
-    hiddenQuestion.classList.remove(".hidden-question")
+    hiddenQuestion.classList.remove("hidden-question")
     hiddenQuestion.classList.add("visible-question");
     loadQuestion();
 }
 
-//TODO: High score button function
 
-function viewScore() {
-    console.log("You want to see scores.")
-    buttonHidden();
-
-}
 // Start quiz button
 playBtn.addEventListener("click", startQuiz);
 
-// disapearing button function
-highscoreBtn.addEventListener("click", viewScore)
+
 
 // Button Ansering Functions
 button1.addEventListener("click", function () {
@@ -216,8 +209,30 @@ button4.addEventListener("click", function () {
 })
 
 
+//TODO: High score button function
+
+// disapearing button function
+highscoreBtn.addEventListener("click", viewScore)
+
+
+
+
+function viewScore() {
+    console.log("You want to see scores.")
+    document.querySelector("#home").classList.add("hidden")
+    console.log("The buttons have gone")
+    hiddenQuestion.classList.remove("visible-question")
+    hiddenQuestion.classList.add("hidden-question");
+    highScorePage.classList.remove("hidden-scores")
+    highScorePage.classList.add("visible-scores")
+
+
+}
+
+
 // TODO: Endgame Function.
 
-// function highScoreScreen() {
+//function highScoreScreen() {
 
 // }
+

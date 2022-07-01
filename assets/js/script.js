@@ -11,7 +11,7 @@ var highScoreSpan = document.querySelector("#highScoreSpan");
 var scoreSpan = document.querySelector("#scoreSpan");
 // High score page div element
 var highScorePage = document.querySelector("#highScores")
-var endscreen = document.getElementById("#endscreen")
+var endScreen = document.getElementById("#endScreen")
 var playBtn = document.querySelector("#play-btn");
 var button1 = document.querySelector("#button1");
 var button2 = document.querySelector("#button2");
@@ -94,32 +94,32 @@ function startQuiz() {
 function loadQuestion() {
     // // TODO: Endgame THIS STUFF IS NEW
     // //console.log(currentQuestion)
-    // if (question.questionIndex === questionBank.length) {
-    //     gameOver()
-    // } else {
-    //console.log(questionBank.length - 1);
-    var currentQuestion = questionBank[questionIndex].question
-    // var question1 = questionBank[questionIndex][1]
-    //console.log(currentQuestion)
-    //console.log(questionSpan)
-    questionSpan.innerText = currentQuestion;
-    console.log(questionBank.length)
-    console.log(currentQuestion)
+    if (questionIndex === questionBank.length - 1) {
+        gameOver()
+    } else {
+        console.log(questionBank.length - 1);
+        var currentQuestion = questionBank[questionIndex].question
+        // var question1 = questionBank[questionIndex][1]
+        //console.log(currentQuestion)
+        //console.log(questionSpan)
+        questionSpan.innerText = currentQuestion;
+        console.log(questionBank.length)
+        console.log(currentQuestion)
 
-    // This line populates the question buttons
-    button1.innerText = questionBank[questionIndex].answers[0];
-    button2.innerText = questionBank[questionIndex].answers[1];
-    button3.innerText = questionBank[questionIndex].answers[2];
-    button4.innerText = questionBank[questionIndex].answers[3];
+        // This line populates the question buttons
+        button1.innerText = questionBank[questionIndex].answers[0];
+        button2.innerText = questionBank[questionIndex].answers[1];
+        button3.innerText = questionBank[questionIndex].answers[2];
+        button4.innerText = questionBank[questionIndex].answers[3];
 
-    //console.log(button1.innerText)
-    //console.log(button2.innerText)
-    //console.log(button3.innerText)
-    //console.log(button4.innerText)
-    //console.log(questionBank[questionIndex].correct)
+        //console.log(button1.innerText)
+        //console.log(button2.innerText)
+        //console.log(button3.innerText)
+        //console.log(button4.innerText)
+        //console.log(questionBank[questionIndex].correct)
 
+    }
 }
-// }
 
 
 function buttonHidden() {
@@ -231,27 +231,29 @@ function viewScore() {
 // TODO: Endgame Function.
 // To run when win conditions met.
 
-// function gameOver() {
-//     hiddenQuestion.classList.remove("visible-question")
-//     hiddenQuestion.classList.add("hidden-question");
-//     highScorePage.classList.add("hidden-scores")
-//     highScorePage.classList.remove("visible-scores")
-//     endscreen.classList.add("visible-gameOver")
-//     endscreen.classList.remove("hidden-gameOver")
-//     enterScore()
-// }
+function gameOver() {
+    hiddenQuestion.classList.remove("visible-question")
+    hiddenQuestion.classList.add("hidden-question");
+    highScorePage.classList.remove("hidden-scores");
+    highScorePage.classList.add("visible-scores");
+
+    //     endScreen.setAttribute('class', 'visible-gameOver')
+    //     // endScreen.classList.add("visible-gameOver");
+    //     // endScreen.classList.remove("hidden-gameOver");
+    enterScore()
+}
 // //To run when the game is finished.
 
-// function enterScore() {
-//     var userInitials = prompt("Enter your name");
-//     localStorage.setItem(userInitials, score)
-//     // i think i alreadty have a style
-//     for (let i = o; i < localStorage.length; i++) {
-//         let li = document.createElement('li')
-//         //console.log(localStorage.key(i))
-//         highScores.appendchild(li)
-//         li.textContent = localStorage.key(i) + ': ' + localStorage.getItem(localStorage.key(i))
-//     }
-// }
+function enterScore() {
+    var userInitials = prompt("Enter your name");
+    localStorage.setItem(userInitials, score)
+    // i think i alreadty have a style
+    for (let i = 0; i < localStorage.length; i++) {
+        let li = document.createElement('li')
+        //console.log(localStorage.key(i))
+        highScores.appendchild(li)
+        li.textContent = localStorage.key(i) + ': ' + localStorage.getItem(localStorage.key(i))
+    }
+}
 
 

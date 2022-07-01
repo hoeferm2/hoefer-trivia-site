@@ -46,6 +46,8 @@ var questionBank = [
     },
 ]
 //LocalStorage Variable
+
+
 var score = 0;
 var secondsLeft = 75;
 var timerel = document.querySelector("#timer")
@@ -64,6 +66,7 @@ function startTime() {
             clearInterval(timerInterval);
             // Calls function to create and append image
             // sendMessage();
+            gameOver()
         }
 
     }, 1000);
@@ -95,6 +98,7 @@ function loadQuestion() {
     // // TODO: Endgame THIS STUFF IS NEW
     // //console.log(currentQuestion)
     if (questionIndex === questionBank.length - 1) {
+        console.log(score)
         gameOver()
     } else {
         console.log(questionBank.length - 1);
@@ -213,8 +217,6 @@ button4.addEventListener("click", function () {
 
 
 
-
-
 function viewScore() {
     //console.log("You want to see scores.")
     document.querySelector("#home").classList.add("hidden")
@@ -240,20 +242,45 @@ function gameOver() {
     //     endScreen.setAttribute('class', 'visible-gameOver')
     //     // endScreen.classList.add("visible-gameOver");
     //     // endScreen.classList.remove("hidden-gameOver");
-    enterScore()
+    // enterScore()
 }
 // //To run when the game is finished.
 
-function enterScore() {
-    var userInitials = prompt("Enter your name");
-    localStorage.setItem(userInitials, score)
-    // i think i alreadty have a style
-    for (let i = 0; i < localStorage.length; i++) {
-        let li = document.createElement('li')
-        //console.log(localStorage.key(i))
-        highScores.appendchild(li)
-        li.textContent = localStorage.key(i) + ': ' + localStorage.getItem(localStorage.key(i))
-    }
-}
+// function enterScore() {
+//     var userInitials = prompt("Enter your name");
+//     localStorage.setItem(userInitials, score)
+//     // i think i alreadty have a style
+//     for (var i = 0; i < localStorage.length; i++) {
+//         var li = document.createElement('li')
+//         //console.log(localStorage.key(i))
+//         highScores.appendchild(li)
+//         li.textContent = localStorage.key(i) + ': ' + localStorage.getItem(localStorage.key(i))
+//     }
+// }
 
 
+// let array = []
+
+// array.push({
+// initials: 'ZY',
+// score: 999999
+// })
+
+// localStorage.setItem("Scores", JSON.stringify(array))
+
+// var score = 999
+// var userInitials = prompt("Enter your name");
+
+// array.push({
+// initials: userInitials,
+// score: score
+// })
+
+// function init() {
+//     var storedInitials = JSON.parse(localStorage.getItem("Initials"));
+
+//     // If todos were retrieved from localStorage, update the todos array to it
+//     if (storedInitials !== null) {
+//         userInitials = storedInitials;
+//     }
+// }

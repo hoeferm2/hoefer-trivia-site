@@ -16,7 +16,7 @@
     </header>
 
     <section class="container">
-
+        <!--REMOVE HIDDEN CLASS-->
         <div id="home">
             <div class="flex-column flex-center">
                 <h1>Are you ready?</h1>
@@ -34,26 +34,21 @@
                 <button class="btn answer" id="button4"></button>
             </div>
         </div>
-
-        <div class="hidden-scores">
-            <div class=" flex-column flex-center">
-                <h1>Hall of Fame!</h1>
-                <form>
-                    <label for="fname">First name:</label><br>
-                    <input type="text" id="fname" name="fname"><br>
-                    <label for="lname">Last name:</label><br>
-                    <input type="text" id="lname" name="lname">
-                </form>
-                <ol class="orderedScores"></ol>
-                <button class="btn" id="play-btn">Play</button>
-            </div>
-        </div>
-
-        <div class="hidden-gameOver">
+        <!--This pops up when end game condtion is met-->
+        <div id="endscreen" class="hidden-gameOver">
             <div class=" flex-column flex-center">
                 <h1>GAME OVER</h1>
                 <h2>Carve your name into the wall of champions</h2>
-                <button class="btn" id="highscore-btn">Enter High score</button>
+            </div>
+        </div>
+        <!-- This is linked to the yellow button -->
+        <div class="hidden-scores" id="highScores">
+            <div class=" flex-column flex-center">
+                <h1>Hall of Fame!</h1>
+                <ol id="orderedScores">
+                    <!--To fill with List Items-->
+                </ol>
+
             </div>
         </div>
 
